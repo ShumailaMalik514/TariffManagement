@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "exscMFiB7iccFHkV9lRdMzamSf7acWZMOhYWMI+0wLY=",
+  "Source": "TariffManagement.Backend",
+  "BasePath": "_content/TariffManagement.Backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

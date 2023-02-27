@@ -1,0 +1,41 @@
+
+<h2>{{title}}</h2>
+<table class="layout">
+    <tr *ngFor="let tariff of tariffList">
+        <td>
+            {{tariff.id}}
+        </td>
+        <td class="tariff-name">
+            <div>{{tariff.name}}</div>
+        </td>
+        <td>
+            <div>
+                Download:
+                <div>
+                    <span></span>
+                    {{tariff.downloadSpeed}}
+                </div>
+            </div>
+
+            <div>
+                Upload:
+                <div>
+                    <span></span>
+                    {{tariff.uploadSpeed}}
+                </div>
+            </div>
+        </td>
+        <td>
+            <div>
+                <ul>
+                    <li *ngFor="let benefit of tariff.benefits">
+                        {{benefit}}
+                    </li>
+                </ul>
+            </div>
+        </td>
+        <td>
+            Price: {{tariff.price}}
+        </td>
+    </tr>
+</table>
