@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 //import {Sort} from '@angular/material/sort';
 import { TariffListService } from '../tariff-list.service';
 
@@ -10,40 +10,43 @@ import { TariffListService } from '../tariff-list.service';
 
 
 
-export class TariffListComponent {
+export class TariffListComponent implements OnInit {
   title:string = 'Tariff List';
-  tariffList:any;
-  sortedData:any;
+  tariffList:any = [];
+  sortProperty: string = 'id';
+  sortOrder = 1;
 
-constructor(service: TariffListService){
-  this.tariffList = service.getTariffList();
+constructor(private service: TariffListService){
+  
+}
+ngOnInit(): void {
+  this.refreshDepList();
+  console.log(this.tariffList);
 }
 
-sortData(sort: any) {
-  const data = this.tariffList.slice();
-  if (!sort.active || sort.direction === '') {
-    this.sortedData = data;
-    return;
-  }
-
-  this.sortedData = data.sort((a:any, b:any) => {
-    const isAsc = sort.direction === 'asc';
-    switch (sort.active) {
-      case 'name':
-        return compare(a.name, b.name, isAsc);
-      case 'calories':
-        return compare(a.calories, b.calories, isAsc);
-      case 'fat':
-        return compare(a.fat, b.fat, isAsc);
-      case 'carbs':
-        return compare(a.carbs, b.carbs, isAsc);
-      case 'protein':
-        return compare(a.protein, b.protein, isAsc);
-      default:
-        return 0;
-    }
+refreshDepList() {
+  this.service.getTariffList().subscribe(data => {
+   this.tariffList = data;
+   console.log(this.tariffList);
   });
 }
+
+sortBy(property: string) {
+  this.sortOrder = property === this.sortProperty ? (this.sortOrder * -1) : 1;
+  this.sortProperty = property;
+  this.tariffList = [...this.tariffList.sort((a: any, b: any) => {
+      // sort comparison function
+      let result = 0;
+      if (a[property] < b[property]) {
+          result = -1;
+      }
+      if (a[property] > b[property]) {
+          result = 1;
+      }
+      return result * this.sortOrder;
+  })];
+}
+
 
 
 

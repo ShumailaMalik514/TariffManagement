@@ -1,41 +1,56 @@
 
-<h2>{{title}}</h2>
-<table class="layout">
-    <tr *ngFor="let tariff of tariffList">
+
+<div class="container-fluid">
+    <h2 card-header text-center>{{title}}</h2>
+    <div class="card-body">
+    <table class="layout table table-responsive col-md-12">
+    <thead>
+        <tr>
+          <th><a (click)="sortBy('id')">Id</a></th>
+          <th><a (click)="sortBy('name')">Name</a></th>
+          <th>Download/Upload Speed</th>
+          <th>Benefits</th>
+          <th><a (click)="sortBy('price')">Price</a></th>
+        </tr>
+    </thead>
+    <tr *ngFor="let tar of tariffList">
         <td>
-            {{tariff.id}}
+            {{tar.id}}
         </td>
         <td class="tariff-name">
-            <div>{{tariff.name}}</div>
+            <div>{{tar.name}}</div>
         </td>
         <td>
-            <div>
+            <div class="font-weight-bold">
                 Download:
-                <div>
-                    <span></span>
-                    {{tariff.downloadSpeed}}
+                <div class="h-25 d-inline-block">
+                    <span class="border"><i class="bi bi-download"></i>
+                    {{tar.downloadSpeed}}</span>
                 </div>
             </div>
 
-            <div>
+            <div class="font-weight-bold">
                 Upload:
                 <div>
-                    <span></span>
-                    {{tariff.uploadSpeed}}
+                    <span><i class="bi bi-upload"></i></span>
+                    {{tar.uploadSpeed}}
+                    
                 </div>
             </div>
         </td>
         <td>
             <div>
                 <ul>
-                    <li *ngFor="let benefit of tariff.benefits">
-                        {{benefit}}
+                    <li *ngFor="let benefit of tar.benefits">
+                        {{benefit }}
                     </li>
                 </ul>
             </div>
         </td>
         <td>
-            Price: {{tariff.price}}
+            Price: {{tar.price}}
         </td>
     </tr>
 </table>
+</div>
+</div>

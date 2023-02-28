@@ -14,7 +14,7 @@ namespace TariffManagement.Backend.Controllers
         }
 
         [HttpGet(Name = "GetTariffList")]
-        public async Task<List<Tariff>> GetAsync()
+        public async Task<List<Tariff>>GetAsync()
         {
             List<Tariff> result = new List<Tariff>();
             result.Add(new Tariff

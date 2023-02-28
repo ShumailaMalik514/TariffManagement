@@ -1,32 +1,27 @@
+
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class TariffListService {
-    getTariffList()
-    {
-        return [
-            {
-                id:1,
-                name:'Tariff',
-                price: '123456 euro',
-                downloadSpeed: '12 mbps',
-                uploadSpeed:'25 mbps',
-                benefits:[
-                    'benefits',
-                    'benefit 2',
-                    'benefit 3'
-                ]
-            },
-            {
-                id:2,
-                name:'Tariff',
-                price: '123456 euro',
-                downloadSpeed: '12 mbps',
-                uploadSpeed:'25 mbps',
-                benefits:[
-                    'benefits',
-                    'benefit 2',
-                    'benefit 3'
-                ]
-            }
-        ]
-    }
+  
+  constructor(private http: HttpClient) { 
+    
+  }
+  
+  rootURL = 'http://localhost:7019/';
+  
+
+  getTariffList(): Observable<any[]> {
+    //this.tariffList = this.http.get(this.rootURL + 'Tariff');
+    var list= this.http.get<any[]>(this.rootURL + 'Tariff');
+    return this.http.get<any[]>(this.rootURL + 'Tariff')
+  }
+
+
 
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj": {}
+    "E:\\Projects\\TariffVerivox\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj": {
+    "E:\\Projects\\TariffVerivox\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj",
+        "projectUniqueName": "E:\\Projects\\TariffVerivox\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj",
         "projectName": "TariffManagement.Backend",
-        "projectPath": "E:\\Projects\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj",
+        "projectPath": "E:\\Projects\\TariffVerivox\\TariffManagement.Backend\\TariffManagement.Backend\\TariffManagement.Backend.csproj",
         "packagesPath": "C:\\Users\\testu\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\TariffManagement.Backend\\TariffManagement.Backend\\obj\\",
+        "outputPath": "E:\\Projects\\TariffVerivox\\TariffManagement.Backend\\TariffManagement.Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
