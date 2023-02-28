@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-//import {Sort} from '@angular/material/sort';
 import { TariffListService } from '../tariff-list.service';
+
 
 @Component({
   selector: 'app-tariff-list',
@@ -20,11 +20,11 @@ constructor(private service: TariffListService){
   
 }
 ngOnInit(): void {
-  this.refreshDepList();
+  this.getTariffList();
   console.log(this.tariffList);
 }
 
-refreshDepList() {
+getTariffList() {
   this.service.getTariffList().subscribe(data => {
    this.tariffList = data;
    console.log(this.tariffList);
@@ -46,12 +46,5 @@ sortBy(property: string) {
       return result * this.sortOrder;
   })];
 }
-
-
-
-
 }
 
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
